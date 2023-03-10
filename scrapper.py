@@ -3,14 +3,17 @@ from bs4 import BeautifulSoup
 import requests
 
 class Scrapper(object):
+    url = ""
+    requestObj = None
+    statusCode = 0
+    tag = None
+
+    # Private member
+    _webContent = ""
+    _soup = None
+
     def __init__(self, url):
         self.url = url
-        self.requestObj = None
-        self.statusCode = 0
-        self.tag = None
-
-        self._webContent = ""
-        self._soup = None
         self.loadPage()
 
     def setUrl(self, url):
